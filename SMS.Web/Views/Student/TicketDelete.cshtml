@@ -1,6 +1,13 @@
 @model Ticket
 
 <!-- TBC add a breadcrumb partial -->
+<partial name="_BreadCrumbs" model=@(new []
+ {
+        ("/","Home"), 
+        ("/student","Students"),        
+        ($"/Student/details/{@Model.StudentId}", $"Details{@Model.StudentId}"),
+        ("", "TicketDelete")
+}) />
 
 <h3 class="mt-4 mb-4">Delete Ticket</h3>
 

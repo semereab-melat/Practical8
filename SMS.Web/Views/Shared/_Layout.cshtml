@@ -11,8 +11,10 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white 
+        border-bottom box-shadow mb-3 ">
+       
+            <div class="container-fluid p-3 mb-2 bg-success text-dark">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SMS.Web</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -20,21 +22,44 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                         <li class="nav-item ">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Student" asp-action="Index">Students</a>
                         </li>
                         <!-- TBC - add a menu item for Tickets -->
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Ticket" asp-action="Index">Tickets</a>
+                        </li> *@
+
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Administrator
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item text-dark"  asp-controller="Student" asp-action="Index">Students</a></li>
+                            <li><a class="dropdown-item text-dark" class="nav-link text-dark"asp-controller="Ticket" asp-action="Index">Tickets</a></li>
+                            
+                        </ul>
+                        </li>
+
+
+
 
                         <!-- TBC - combine Privacy and About into a single drop down titled Company -->
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            User
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+                            <li><a class="dropdown-item" class="nav-link text-dark" asp-controller="Home" asp-action="About">About</a></li>
+          
+                        </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="About">About</a>
-                        </li>
+
 
                     </ul>
                 </div>
@@ -51,7 +76,7 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="container-fluid mb-12 bg-success text-dark">
             &copy; 2022 - SMS.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>

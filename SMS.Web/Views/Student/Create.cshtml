@@ -2,13 +2,20 @@
 
 <!-- TBC add a breadcrumb partial -->
 
+<partial name="_BreadCrumbs" model=@(new []
+ {
+        ("/","Home"), 
+        ("/student","Students"),
+        ("", "Create")
+}) />
+
 
 <h3 class="my-4">Create Student</h3>
 
 <div class="card rounded shadow p-3">
-    <form asp-action="Create">
+    <form asp-action="Create" method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+        @* <input type="hidden" asp-for="Id" class="form-control"/> *@
         <div class="mt-3">
             <label asp-for="Name" class="form-label"></label>
             <input asp-for="Name" class="form-control"/>

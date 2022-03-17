@@ -1,13 +1,19 @@
 @model IList<Student>
 
-<partial name="_BreadCrumbs" model=@(new [] {
-    ("/","Home"),
-    ("","Students")
+<partial name="_BreadCrumbs" model=@(new []
+ {
+        ("/","Home"), 
+        ("","Students") 
 }) />
 
 <h3 class="mb-3">Student List</h3>
 
-<a class="btn btn-sm btn-primary my-3" asp-controller="Student" asp-action="Create" >Create</a>     
+ <div class="col-6 text-left">
+     <a class="btn btn-sm btn-primary my-3" asp-controller="Student" asp-action="Create">            
+     <i class="bi bi-plus-circle"></i> &nbsp;Create New Student</a>
+ </div>
+
+
 
 <table class="table table-hover">
     <thead>
@@ -20,7 +26,8 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var s in Model) {
+        @foreach (var s in Model)
+        {
             <tr>
                 <td>@s.Id</td>
                 <td>@s.Name</td>
@@ -28,13 +35,21 @@
                 <td>@s.Age</td>
                 <td>
                     <!-- Add View link -->
-                    <a title="view student details" asp-controller="Student" asp-action="Details" asp-route-id=@s.Id>View</a>  
-                    <!-- Add edit link  -->
-                    <a asp-controller="Student" asp-action="Edit" asp-route-id=@s.Id>Edit</a>
-                    <!-- Add delete link -->
-                    <a asp-controller="Student" asp-action="Delete" asp-route-id=@s.Id>Delete</a>
+                 <div class="w-75 btn-group" role="group">
+                    <a title="Student Details" asp-controller="Student" asp-action="Details" asp-route-id=@s.Id
+                        class="btn btn-info mx-2"><i class="bi bi-person-lines-fill"></i></a>
+
+                        <!-- Add edit link  -->
+                    <a title="Edit student" asp-controller="Student" asp-action="Edit" asp-route-id=@s.Id class="btn btn-primary mx-2"><i
+                            class="bi bi-pencil-square"></i> </a>
+
+                        <!-- Add delete link -->
+                    <a title="Delete Student" asp-controller="Student" asp-action="Delete" asp-route-id=@s.Id class="btn btn-danger mx-2"><i
+                            class="bi bi-trash"></i></a>
+                    </div>
+                    
                 </td>
             </tr>
-        }        
+        }
     </tbody>
 </table>

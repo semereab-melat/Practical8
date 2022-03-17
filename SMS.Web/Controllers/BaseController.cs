@@ -2,7 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SMS.Web.Controllers
 {
-    public enum AlertType { success, danger, warning, info }
+    public enum AlertType { success, danger, warning, info, primary, secondary,
+    light, dark }
 
     public class BaseController : Controller
     {

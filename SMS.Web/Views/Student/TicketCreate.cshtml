@@ -2,6 +2,14 @@
 
 <!-- TBC add a breadcrumb partial -->
 
+<partial name="_BreadCrumbs" model=@(new []
+ {
+        ("/","Home"), 
+        ("/student","Students"),        
+        ($"/Student/details/{@Model.StudentId}", $"Details{@Model.StudentId}"),
+        ("", "TicketCreate")
+}) />
+
 <h3 class="mt-4">Create Ticket</h3>
 
 <form asp-action="TicketCreate">

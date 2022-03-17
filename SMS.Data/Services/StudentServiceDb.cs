@@ -36,7 +36,7 @@ namespace SMS.Data.Services
         {
             return db.Students
                      .Include(s => s.Tickets)
-                     .Include(s => s.StudentModules)
+                     .Include(s => s.StudentModules)                       
                      // drill down and include each studentmodule module entity     
                      .ThenInclude(sm => sm.Module) 
                      .FirstOrDefault(s => s.Id == id);
@@ -151,7 +151,7 @@ namespace SMS.Data.Services
             if (ticket == null || !ticket.Active) return null;
             
             // ticket exists and is active so close
-            ticket.Active = false;
+            ticket.Active = false;           
            
             db.SaveChanges(); // write to database
             return ticket;

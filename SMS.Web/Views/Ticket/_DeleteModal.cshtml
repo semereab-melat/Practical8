@@ -1,18 +1,19 @@
-@model Student
+@model Ticket
 
 <!-- TBC Delete Modal -->
 <div class="modal" tabindex="-1" id="deleteModal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Delete Student</h5>
+        <h5 class="modal-title">Delete Ticket</h5>
       </div> 
       
       <div class="modal-body">
-        <p>Are you sure want to Delete @Model.Name ?</p>
+        <p>Are you sure want to Close @Model.Student.Name Issue?</p>
       </div>
       <div class="modal-footer">
-          <form asp-action= "DeleteConfirm">
+          <form asp-action= "Close">
+            <input type="hidden" asp-for=@Model.Student.Id>
             <input type="hidden" asp-for=@Model.Id>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
             <input type="submit" class="btn btn-danger" value="Confirm">

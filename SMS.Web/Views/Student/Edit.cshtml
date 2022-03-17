@@ -1,6 +1,13 @@
 @model Student
 
 <!-- TBC add a breadcrumb partial -->
+<partial name="_BreadCrumbs" model=@(new []
+ {
+        ("/","Home"), 
+        ("/student","Students"),        
+        ($"/Student/details/{@Model.Id}", $"Details{@Model.Id}"),
+        ("", "Edit")
+}) />
 
 
 <h3 class="my-4">Edit Student</h3>
